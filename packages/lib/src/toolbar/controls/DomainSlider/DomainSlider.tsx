@@ -20,6 +20,7 @@ interface Props {
   scaleType: ScaleType;
   onCustomDomainChange: (domain: CustomDomain) => void;
   histogram?: HistogramParams;
+  alwaysOpen?: boolean;
 }
 
 function DomainSlider(props: Props) {
@@ -41,6 +42,7 @@ function DomainSlider(props: Props) {
   const [isEditingMin, toggleEditingMin] = useToggle(false);
   const [isEditingMax, toggleEditingMax] = useToggle(false);
   const isEditing = isEditingMin || isEditingMax;
+  const alwaysOpen = props.alwaysOpen ?? false;
 
   function toggleEditing(force: boolean) {
     toggleEditingMin(force);
@@ -105,7 +107,7 @@ function DomainSlider(props: Props) {
       <DomainTooltip
         ref={tooltipRef}
         id={TOOLTIP_ID}
-        open={hovered || isEditing}
+        open={hovered || isEditing || alwaysOpen}
         sliderDomain={sliderDomain}
         dataDomain={dataDomain}
         errors={errors}
