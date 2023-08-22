@@ -25,6 +25,8 @@ import styles from './ScatterVis.module.css';
 interface Props {
   abscissaParams: ScatterAxisParams;
   ordinateParams: ScatterAxisParams;
+  flipXAxis?: boolean;
+  flipYAxis?: boolean;
   dataArray: NdArray<NumArray>;
   domain: Domain;
   colorMap?: ColorMap;
@@ -42,6 +44,8 @@ function ScatterVis(props: Props) {
   const {
     abscissaParams,
     ordinateParams,
+    flipXAxis,
+    flipYAxis,
     dataArray,
     domain,
     colorMap = 'Viridis',
@@ -91,12 +95,14 @@ function ScatterVis(props: Props) {
           showGrid,
           label: abscissaLabel,
           scaleType: abscissaScaleType,
+          flip: flipXAxis,
         }}
         ordinateConfig={{
           visDomain: ordinateDomain,
           showGrid,
           label: ordinateLabel,
           scaleType: ordinateScaleType,
+          flip: flipYAxis,
         }}
         title={title}
         // Increase raycaster threshold to match point size

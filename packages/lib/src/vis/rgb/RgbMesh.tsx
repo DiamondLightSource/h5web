@@ -8,10 +8,12 @@ import { getData3DTexture } from './utils';
 interface Props {
   values: NdArray<Uint8Array | Uint8ClampedArray | Float32Array>;
   bgr?: boolean;
+  flipXAxis?: boolean;
+  flipYAxis?: boolean;
 }
 
 function RgbMesh(props: Props) {
-  const { values, bgr = false } = props;
+  const { values, bgr = false, flipXAxis = false, flipYAxis = true } = props;
 
   const dataTexture = useMemo(() => getData3DTexture(values), [values]);
 
@@ -39,7 +41,7 @@ function RgbMesh(props: Props) {
   };
 
   return (
-    <VisMesh scale={[1, -1, 1]}>
+    <VisMesh scale={[flipXAxis ? -1 : 1, flipYAxis ? -1 : 1, 1]}>
       <shaderMaterial args={[shader]} />
     </VisMesh>
   );

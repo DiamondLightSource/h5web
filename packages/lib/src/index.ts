@@ -22,6 +22,7 @@ export { default as ColorMapOption } from './toolbar/controls/ColorMapSelector/C
 export { default as ColorMapSelector } from './toolbar/controls/ColorMapSelector/ColorMapSelector';
 export { default as ScaleSelector } from './toolbar/controls/ScaleSelector/ScaleSelector';
 export { default as GridToggler } from './toolbar/controls/GridToggler';
+export { default as FlipXAxisToggler } from './toolbar/controls/FlipXAxisToggler';
 export { default as FlipYAxisToggler } from './toolbar/controls/FlipYAxisToggler';
 export { default as Selector } from './toolbar/controls/Selector/Selector';
 export { default as InteractionHelp } from './toolbar/controls/InteractionHelp';
