@@ -1,4 +1,4 @@
-import type { NumArray } from '@h5web/shared';
+import type { Domain, NumArray } from '@h5web/shared';
 import { assertDefined, getDims } from '@h5web/shared';
 import type { NdArray } from 'ndarray';
 import type { ReactNode } from 'react';
@@ -22,6 +22,8 @@ interface Props {
   showGrid?: boolean;
   title?: string;
   imageType?: ImageType;
+  domainAbscissa?: Domain;
+  domainOrdinate?: Domain;
   abscissaParams?: AxisParams;
   ordinateParams?: AxisParams;
   children?: ReactNode;
@@ -35,6 +37,8 @@ function RgbVis(props: Props) {
     showGrid = false,
     title,
     imageType = ImageType.RGB,
+    domainAbscissa,
+    domainOrdinate,
     abscissaParams = {},
     ordinateParams = {},
     children,
@@ -61,13 +65,13 @@ function RgbVis(props: Props) {
         title={title}
         aspect={aspect}
         abscissaConfig={{
-          visDomain: abscissaDomain,
+          visDomain: domainAbscissa ?? abscissaDomain,
           showGrid,
           isIndexAxis: true,
           label: abscissaLabel,
         }}
         ordinateConfig={{
-          visDomain: ordinateDomain,
+          visDomain: domainOrdinate ?? ordinateDomain,
           showGrid,
           isIndexAxis: true,
           flip: true,

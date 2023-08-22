@@ -32,6 +32,8 @@ interface Props {
   title?: string;
   dtype?: NumericType;
   invertColorMap?: boolean;
+  domainAbscissa?: Domain;
+  domainOrdinate?: Domain;
   abscissaParams?: AxisParams;
   ordinateParams?: AxisParams;
   alpha?: { array: NdArray<NumArray>; domain: Domain };
@@ -53,6 +55,8 @@ function HeatmapVis(props: Props) {
     invertColorMap = false,
     title,
     dtype,
+    domainAbscissa,
+    domainOrdinate,
     abscissaParams = {},
     ordinateParams = {},
     alpha,
@@ -87,13 +91,13 @@ function HeatmapVis(props: Props) {
         title={title}
         aspect={aspect}
         abscissaConfig={{
-          visDomain: abscissaDomain,
+          visDomain: domainAbscissa ?? abscissaDomain,
           showGrid,
           isIndexAxis: !abscissaValue,
           label: abscissaLabel,
         }}
         ordinateConfig={{
-          visDomain: ordinateDomain,
+          visDomain: domainOrdinate ?? ordinateDomain,
           showGrid,
           isIndexAxis: !ordinateValue,
           label: ordinateLabel,
