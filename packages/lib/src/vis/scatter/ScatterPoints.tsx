@@ -7,7 +7,7 @@ import { type ThreeEvent } from '@react-three/fiber';
 import { useCallback, useMemo } from 'react';
 
 import { useInterpolator } from '../heatmap/hooks';
-import { type ColorMap } from '../heatmap/models';
+import { type CustomizableColorMap } from '../heatmap/models';
 import { useUpdateGeometry } from '../hooks';
 import GlyphMaterial from '../line/GlyphMaterial';
 import { GlyphType } from '../line/models';
@@ -21,7 +21,7 @@ interface Props {
   data: NumArray;
   domain: Domain;
   scaleType: ColorScaleType;
-  colorMap: ColorMap;
+  colorMap: CustomizableColorMap;
   invertColorMap: boolean;
   size: number;
   onClick?: (index: number, evt: ThreeEvent<MouseEvent>) => void;

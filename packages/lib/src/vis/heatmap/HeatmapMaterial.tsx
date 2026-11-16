@@ -17,14 +17,17 @@ import { type VisScaleType } from '../models';
 import { type VisMeshProps } from '../shared/VisMesh';
 import { DEFAULT_DOMAIN, getUniforms, VERTEX_SHADER } from '../utils';
 import { useDataTexture } from './hooks';
-import { type ColorMap, type TextureSafeTypedArray } from './models';
+import {
+  type CustomizableColorMap,
+  type TextureSafeTypedArray,
+} from './models';
 import { getInterpolator, scaleDomain } from './utils';
 
 interface Props extends VisMeshProps {
   values: NdArray<TextureSafeTypedArray>;
   domain: Domain;
   scaleType: VisScaleType;
-  colorMap: ColorMap;
+  colorMap: CustomizableColorMap;
   invertColorMap?: boolean;
   alphaValues?: NdArray<TextureSafeTypedArray>;
   alphaDomain?: Domain;

@@ -9,13 +9,16 @@ import {
 import { type VisScaleType } from '../models';
 import VisMesh, { type VisMeshProps } from '../shared/VisMesh';
 import HeatmapMaterial from './HeatmapMaterial';
-import { type ColorMap, type TextureSafeTypedArray } from './models';
+import {
+  type CustomizableColorMap,
+  type TextureSafeTypedArray,
+} from './models';
 
 interface Props extends VisMeshProps {
   values: NdArray<TextureSafeTypedArray>;
   domain: Domain;
   scaleType: VisScaleType;
-  colorMap: ColorMap;
+  colorMap: CustomizableColorMap;
   invertColorMap?: boolean;
   alphaValues?: NdArray<TextureSafeTypedArray>;
   alphaDomain?: Domain;

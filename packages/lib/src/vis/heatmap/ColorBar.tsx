@@ -7,13 +7,13 @@ import { type VisScaleType } from '../models';
 import Tick from '../shared/Tick';
 import { adaptedNumTicks, createScale } from '../utils';
 import styles from './ColorBar.module.css';
-import { type ColorMap } from './models';
+import { type CustomizableColorMap } from './models';
 import { getInterpolator, getLinearGradient } from './utils';
 
 interface Props {
   domain: Domain;
   scaleType: VisScaleType;
-  colorMap: ColorMap;
+  colorMap: CustomizableColorMap;
   horizontal?: boolean;
   withBounds?: boolean;
   invertColorMap: boolean;

@@ -25,7 +25,7 @@ import { type CustomDomain, DomainError, type DomainErrors } from '../models';
 import { SCALES_VALID_MINS } from '../utils';
 import { INTERPOLATORS } from './interpolators';
 import {
-  type ColorMap,
+  type CustomizableColorMap,
   type D3Interpolator,
   type TextureSafeTypedArray,
 } from './models';
@@ -137,10 +137,11 @@ export function getPixelEdgeValues(
 }
 
 export function getInterpolator(
-  colorMap: ColorMap,
+  colorMap: CustomizableColorMap,
   reverse: boolean,
 ): D3Interpolator {
-  const interpolator = INTERPOLATORS[colorMap];
+  const interpolator =
+    typeof colorMap === 'string' ? INTERPOLATORS[colorMap] : colorMap;
   return reverse ? (t: number) => interpolator(1 - t) : interpolator;
 }
 

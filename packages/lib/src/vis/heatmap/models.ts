@@ -4,6 +4,8 @@ export type D3Interpolator = (t: number) => string;
 
 export type ColorMap = keyof typeof INTERPOLATORS;
 
+export type CustomizableColorMap = ColorMap | D3Interpolator;
+
 export interface TooltipData {
   abscissa: number;
   ordinate: number;

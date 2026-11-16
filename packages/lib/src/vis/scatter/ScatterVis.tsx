@@ -16,7 +16,7 @@ import DefaultInteractions, {
 } from '../../interactions/DefaultInteractions';
 import ResetZoomButton from '../../toolbar/floating/ResetZoomButton';
 import ColorBar from '../heatmap/ColorBar';
-import { type ColorMap } from '../heatmap/models';
+import { type CustomizableColorMap } from '../heatmap/models';
 import { useAxisDomain } from '../hooks';
 import { type ClassStyleAttrs } from '../models';
 import Tooltip from '../shared/Tooltip';
@@ -30,7 +30,7 @@ interface Props extends ClassStyleAttrs {
   ordinateParams: ScatterAxisParams;
   dataArray: NdArray<NumArray>;
   domain: Domain;
-  colorMap?: ColorMap;
+  colorMap?: CustomizableColorMap;
   invertColorMap?: boolean;
   scaleType?: ColorScaleType;
   showGrid?: boolean;

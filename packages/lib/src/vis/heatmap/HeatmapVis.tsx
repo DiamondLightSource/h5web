@@ -32,12 +32,12 @@ import ColorBar from './ColorBar';
 import HeatmapMesh from './HeatmapMesh';
 import styles from './HeatmapVis.module.css';
 import { useMask, usePixelEdgeValues, useTextureSafeNdArray } from './hooks';
-import { type ColorMap, type TooltipData } from './models';
+import { type CustomizableColorMap, type TooltipData } from './models';
 
 interface Props extends ClassStyleAttrs {
   dataArray: NdArray<NumArray>;
   domain: Domain | undefined;
-  colorMap?: ColorMap;
+  colorMap?: CustomizableColorMap;
   scaleType?: VisScaleType;
   aspect?: Aspect;
   showGrid?: boolean;
